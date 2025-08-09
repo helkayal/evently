@@ -1,7 +1,7 @@
 import 'package:evently/firebase_options.dart';
 import 'package:evently/ui/providers/theme_provider.dart';
 import 'package:evently/ui/providers/language_provider.dart';
-import 'package:evently/ui/screens/login/login.dart';
+import 'package:evently/ui/screens/splash/splash.dart';
 import 'package:evently/ui/utils/app_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +32,8 @@ class MyApp extends StatelessWidget {
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Evently',
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: themeProvider.mode,
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: [Locale('en'), Locale('ar')],
-      home: Login(),
+      home: Splash(),
     );
   }
 }

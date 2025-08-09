@@ -49,16 +49,24 @@ Stream<List<EventDM>> getAllEventsFromFirestore() {
 }
 
 Future<List<EventDM>> getFavoriteEvents() async {
+  final favoriteIds = UserDM.currentUser!.favoriteEvents;
+
+  // Avoid Firestore query if list is empty
+  if (favoriteIds.isEmpty) return [];
+
   var eventsCollection = FirebaseFirestore.instance.collection(
     EventDM.collectionName,
   );
+
   var querySnapshot = await eventsCollection
-      .where("id", whereIn: UserDM.currentUser!.favoriteEvents)
+      .where("id", whereIn: favoriteIds)
       .get();
+
   List<EventDM> events = querySnapshot.docs.map((docSnapshot) {
     var json = docSnapshot.data();
     return EventDM.fromJson(json);
   }).toList();
+
   return events;
 }
 

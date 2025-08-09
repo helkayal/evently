@@ -43,7 +43,7 @@ abstract final class AppTheme {
     ),
     labelSmall: const TextStyle(
       fontSize: 16,
-      color: AppColors.black,
+      color: AppColors.white,
       fontWeight: FontWeight.w500,
     ),
   );
@@ -60,7 +60,14 @@ abstract final class AppTheme {
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.white,
     primaryColor: AppColors.blue,
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blue),
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.light,
+      seedColor: AppColors.blue,
+      primary: AppColors.blue,
+      secondary: AppColors.black,
+      onSecondary: AppColors.white,
+    ),
+    brightness: Brightness.light,
     textTheme: _lightTextTheme,
     appBarTheme: AppBarTheme(
       backgroundColor: Colors.transparent,
@@ -73,7 +80,7 @@ abstract final class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.blue,
+        backgroundColor: AppColors.white,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: BorderSide(color: AppColors.blue),
@@ -93,12 +100,28 @@ abstract final class AppTheme {
       hintStyle: _lightTextTheme.titleSmall,
     ),
     dividerTheme: DividerThemeData(color: AppColors.blue, thickness: 1),
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      elevation: 0,
+      selectedItemColor: AppColors.white,
+      unselectedItemColor: AppColors.white,
+      selectedLabelStyle: TextStyle(color: AppColors.white),
+      unselectedLabelStyle: TextStyle(color: AppColors.white),
+      showUnselectedLabels: true,
+      type: BottomNavigationBarType.fixed,
+    ),
   );
 
   static ThemeData darkTheme = ThemeData(
     scaffoldBackgroundColor: AppColors.dartPurple,
     primaryColor: AppColors.blue,
-    colorScheme: ColorScheme.fromSeed(seedColor: AppColors.blue),
+    colorScheme: ColorScheme.fromSeed(
+      brightness: Brightness.dark,
+      seedColor: AppColors.blue,
+      primary: AppColors.blue,
+      secondary: AppColors.white,
+      onSecondary: AppColors.black,
+    ),
+    brightness: Brightness.dark,
     textTheme: _dartTextTheme,
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.blue,
@@ -111,7 +134,12 @@ abstract final class AppTheme {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.blue,
+        backgroundColor: AppColors.dartPurple,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+          side: BorderSide(color: AppColors.blue),
+        ),
+        padding: EdgeInsets.symmetric(vertical: 16),
         textStyle: TextStyle(
           color: AppColors.white,
           fontSize: 16,
