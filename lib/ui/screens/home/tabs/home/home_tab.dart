@@ -2,9 +2,11 @@ import 'package:evently/data/firestore_utils.dart';
 import 'package:evently/model/category_dm.dart';
 import 'package:evently/model/user_dm.dart';
 import 'package:evently/ui/utils/app_colors.dart';
+import 'package:evently/ui/utils/app_routes.dart';
 import 'package:evently/ui/widgets/category_tabs.dart';
 import 'package:evently/ui/widgets/event_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({super.key});
@@ -99,10 +101,43 @@ class _HomeTabState extends State<HomeTab> {
             return event.categoryId == selectedCategory.title;
           }).toList();
         }
+        // return ListView.builder(
+        //   itemCount: events.length,
+        //   itemBuilder: (context, index) {
+        //     return EventWidget(eventDM: events[index]);
+        //   },
+        // );
         return ListView.builder(
           itemCount: events.length,
           itemBuilder: (context, index) {
-            return EventWidget(eventDM: events[index]);
+            final event = events[index];
+            return Slidable(
+              key: ValueKey(event.id),
+              endActionPane: ActionPane(
+                motion: const ScrollMotion(),
+                children: [
+                  SlidableAction(
+                    onPressed: (_) async {
+                      await deleteEventFromFirestore(event.id);
+                    },
+                    backgroundColor: Colors.red,
+                    foregroundColor: Colors.white,
+                    icon: Icons.delete,
+                    label: 'Delete',
+                  ),
+                  SlidableAction(
+                    onPressed: (_) {
+                      Navigator.push(context, AppRoutes.editEvent(event));
+                    },
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    icon: Icons.edit,
+                    label: 'Edit',
+                  ),
+                ],
+              ),
+              child: EventWidget(eventDM: event),
+            );
           },
         );
       } else {

@@ -1,4 +1,6 @@
-import 'package:evently/ui/screens/add_event/add_event.dart';
+import 'package:evently/model/event_dm.dart';
+import 'package:evently/ui/screens/events/add_event/add_event.dart';
+import 'package:evently/ui/screens/events/edit_event/edit_event.dart';
 import 'package:evently/ui/screens/home/home.dart';
 import 'package:evently/ui/screens/login/login.dart';
 import 'package:evently/ui/screens/onboarding/onboarding.dart';
@@ -24,5 +26,9 @@ abstract final class AppRoutes {
 
   static Route get addEvent {
     return MaterialPageRoute(builder: (_) => const AddEvent());
+  }
+
+  static Route editEvent(EventDM event) {
+    return MaterialPageRoute(builder: (_) => EditEvent(event: event));
   }
 }

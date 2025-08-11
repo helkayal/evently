@@ -8,6 +8,7 @@ class CategoryTabs extends StatefulWidget {
   final Color unselectedTabBg;
   final Color selectedTabTextColor;
   final Color unselectedTabTextColor;
+  final CategoryDM? initialSelectedCategory;
 
   const CategoryTabs({
     super.key,
@@ -17,6 +18,7 @@ class CategoryTabs extends StatefulWidget {
     required this.unselectedTabBg,
     required this.unselectedTabTextColor,
     required this.onTabSelected,
+    this.initialSelectedCategory,
   });
 
   @override
@@ -25,16 +27,18 @@ class CategoryTabs extends StatefulWidget {
 
 class _CategoryTabsState extends State<CategoryTabs> {
   late CategoryDM selectedCategory;
+
   @override
   void initState() {
     super.initState();
-    selectedCategory = widget.categories[0];
+    selectedCategory = widget.initialSelectedCategory ?? widget.categories[0];
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: widget.categories.length,
+      initialIndex: widget.categories.indexOf(selectedCategory),
       child: TabBar(
         isScrollable: true,
         indicatorColor: Colors.transparent,
@@ -63,7 +67,7 @@ class _CategoryTabsState extends State<CategoryTabs> {
           color: isSelected ? widget.selectedTabBg : widget.unselectedTabBg,
           border: Border.all(color: widget.selectedTabBg, width: 1),
         ),
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -73,7 +77,7 @@ class _CategoryTabsState extends State<CategoryTabs> {
                   ? widget.selectedTabTextColor
                   : widget.unselectedTabTextColor,
             ),
-            SizedBox(width: 8),
+            const SizedBox(width: 8),
             Text(
               category.title,
               style: TextStyle(

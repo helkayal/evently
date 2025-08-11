@@ -95,3 +95,23 @@ Future removeEventFromFavorite(String eventId) async {
   });
   UserDM.currentUser!.favoriteEvents.remove(eventId);
 }
+
+Future<void> editEventInFirestore(EventDM event) async {
+  if (event.id.isEmpty) return;
+
+  var eventsCollection = FirebaseFirestore.instance.collection(
+    EventDM.collectionName,
+  );
+
+  await eventsCollection.doc(event.id).update(event.toJson());
+}
+
+Future<void> deleteEventFromFirestore(String eventId) async {
+  if (eventId.isEmpty) return;
+
+  var eventsCollection = FirebaseFirestore.instance.collection(
+    EventDM.collectionName,
+  );
+
+  await eventsCollection.doc(eventId).delete();
+}
