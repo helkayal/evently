@@ -23,6 +23,16 @@ abstract final class AppTheme {
       color: AppColors.black,
       fontWeight: FontWeight.w500,
     ),
+    headlineLarge: const TextStyle(
+      fontSize: 24,
+      color: AppColors.blue,
+      fontWeight: FontWeight.w500,
+    ),
+    headlineMedium: const TextStyle(
+      fontSize: 16,
+      color: AppColors.blue,
+      fontWeight: FontWeight.w500,
+    ),
   );
 
   static final TextTheme _dartTextTheme = TextTheme(
@@ -44,6 +54,16 @@ abstract final class AppTheme {
     labelSmall: const TextStyle(
       fontSize: 16,
       color: AppColors.white,
+      fontWeight: FontWeight.w500,
+    ),
+    headlineLarge: const TextStyle(
+      fontSize: 24,
+      color: AppColors.blue,
+      fontWeight: FontWeight.w500,
+    ),
+    headlineMedium: const TextStyle(
+      fontSize: 16,
+      color: AppColors.blue,
       fontWeight: FontWeight.w500,
     ),
   );

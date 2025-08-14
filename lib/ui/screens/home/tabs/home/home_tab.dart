@@ -101,12 +101,6 @@ class _HomeTabState extends State<HomeTab> {
             return event.categoryId == selectedCategory.title;
           }).toList();
         }
-        // return ListView.builder(
-        //   itemCount: events.length,
-        //   itemBuilder: (context, index) {
-        //     return EventWidget(eventDM: events[index]);
-        //   },
-        // );
         return ListView.builder(
           itemCount: events.length,
           itemBuilder: (context, index) {
@@ -136,7 +130,12 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                 ],
               ),
-              child: EventWidget(eventDM: event),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context, AppRoutes.eventDetails(event));
+                },
+                child: EventWidget(eventDM: event),
+              ),
             );
           },
         );

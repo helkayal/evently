@@ -4,6 +4,7 @@ import 'package:evently/model/event_dm.dart';
 import 'package:evently/model/user_dm.dart';
 import 'package:evently/ui/screens/events/common/events_common.dart';
 import 'package:evently/ui/utils/app_colors.dart';
+import 'package:evently/ui/utils/app_routes.dart';
 import 'package:evently/ui/utils/dialog_utils.dart';
 import 'package:evently/ui/widgets/category_tabs.dart';
 import 'package:evently/ui/widgets/custom_button.dart';
@@ -115,7 +116,7 @@ class _EditEventState extends State<EditEvent> {
       await editEventInFirestore(eventDM);
       if (!mounted) return;
       Navigator.pop(context); // hide loading
-      Navigator.pop(context); // Close screen
+      Navigator.push(context, AppRoutes.home);
     },
   );
 }

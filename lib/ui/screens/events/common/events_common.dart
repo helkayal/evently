@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 buildCategoryImage(CategoryDM selectedCategory, BuildContext context) =>
     ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(24),
       child: Image.asset(
         selectedCategory.image,
         height: MediaQuery.of(context).size.height * 0.25,
