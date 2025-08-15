@@ -74,22 +74,11 @@ buildEventDate({
     children: [
       const Icon(Icons.calendar_month),
       const SizedBox(width: 8),
-      const Text(
-        "Event Date",
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: AppColors.black,
-        ),
-      ),
+      Text("Event Date", style: Theme.of(context).textTheme.labelMedium),
       const Spacer(),
       Text(
         "${selectedDate.toLocal()}".split(' ')[0],
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: AppColors.blue,
-        ),
+        style: Theme.of(context).textTheme.labelMedium,
       ),
     ],
   ),
@@ -113,28 +102,50 @@ buildEventTime({
     children: [
       const Icon(Icons.access_time),
       const SizedBox(width: 8),
-      const Text(
-        "Event Time",
-        style: TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: AppColors.black,
-        ),
-      ),
+      Text("Event Time", style: Theme.of(context).textTheme.labelMedium),
       const Spacer(),
       Text(
         selectedTime.format(context),
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: AppColors.blue,
-        ),
+        style: Theme.of(context).textTheme.labelMedium,
       ),
     ],
   ),
 );
 
-buildEventLocation() => Container();
+buildEventLocation(BuildContext context) => Column(
+  crossAxisAlignment: CrossAxisAlignment.stretch,
+  children: [
+    Text("Location", style: Theme.of(context).textTheme.labelSmall),
+    const SizedBox(height: 8),
+    Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: AppColors.blue, width: 2),
+      ),
+      child: Row(
+        children: [
+          Container(
+            padding: const EdgeInsets.all(12),
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Icon(
+              Icons.location_searching,
+              size: 32,
+              color: Theme.of(context).colorScheme.onSecondary,
+            ),
+          ),
+          const SizedBox(width: 8),
+          Text("Cairo, Egypt", style: Theme.of(context).textTheme.labelMedium),
+          Spacer(),
+          Icon(Icons.arrow_forward_ios, color: AppColors.blue),
+        ],
+      ),
+    ),
+  ],
+);
 
 buildEventAppbar({
   required BuildContext context,

@@ -32,6 +32,7 @@ class AppAssets {
   static const String onboardingDark2 = 'assets/images/onboarding_dark_2.png';
   static const String onboardingDark3 = 'assets/images/onboarding_dark_3.png';
   static const String icGoogle = 'assets/images/ic_google.png';
+  static const String eventMap = 'assets/images/event_map.png';
 }
 
 class AppSvg {

@@ -68,7 +68,7 @@ class _EditEventState extends State<EditEvent> {
                   });
                 },
               ),
-              buildEventLocation(),
+              buildEventLocation(context),
               buildEditEventButton(),
             ],
           ),

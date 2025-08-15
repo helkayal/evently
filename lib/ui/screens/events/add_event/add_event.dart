@@ -55,7 +55,7 @@ class _AddEventState extends State<AddEvent> {
                   });
                 },
               ),
-              buildEventLocation(),
+              buildEventLocation(context),
               buildAddEventButton(),
             ],
           ),
@@ -75,72 +75,6 @@ class _AddEventState extends State<AddEvent> {
     unselectedTabBg: AppColors.white,
     unselectedTabTextColor: AppColors.blue,
   );
-
-  // buildEventDate(DateTime selectedDate, BuildContext context) => InkWell(
-  //   onTap: () async {
-  //     selectedDate =
-  //         (await showDatePicker(
-  //           context: context,
-  //           firstDate: DateTime.now(),
-  //           initialDate: selectedDate,
-  //           lastDate: DateTime.now().add(Duration(days: 365)),
-  //         )) ??
-  //         selectedDate;
-  //   },
-  //   child: Row(
-  //     children: [
-  //       Icon(Icons.calendar_month),
-  //       Text(
-  //         "Event Date",
-  //         style: TextStyle(
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //           color: AppColors.black,
-  //         ),
-  //       ),
-  //       Spacer(),
-  //       Text(
-  //         "Choose date",
-  //         style: TextStyle(
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //           color: AppColors.blue,
-  //         ),
-  //       ),
-  //     ],
-  //   ),
-  // );
-
-  // buildEventTime(TimeOfDay selectedTime, BuildContext context) => InkWell(
-  //   onTap: () async {
-  //     selectedTime =
-  //         (await showTimePicker(context: context, initialTime: selectedTime)) ??
-  //         selectedTime;
-  //     setState(() {});
-  //   },
-  //   child: Row(
-  //     children: [
-  //       Icon(Icons.access_time),
-  //       Text(
-  //         "Event Time",
-  //         style: TextStyle(
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //           color: AppColors.black,
-  //         ),
-  //       ),
-  //       Spacer(),
-  //       Text(
-  //         "Choose time",
-  //         style: TextStyle(
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //           color: AppColors.blue,
-  //         ),
-  //       ),
-  //     ],
-  //   ),
-  // );
 
   buildAddEventButton() => CustomButton(
     text: "Add event",

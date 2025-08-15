@@ -2,6 +2,7 @@ import 'package:evently/data/firestore_utils.dart';
 import 'package:evently/model/category_dm.dart';
 import 'package:evently/model/event_dm.dart';
 import 'package:evently/ui/screens/events/common/events_common.dart';
+import 'package:evently/ui/utils/app_assets.dart';
 import 'package:evently/ui/utils/app_colors.dart';
 import 'package:evently/ui/utils/app_routes.dart';
 import 'package:flutter/material.dart';
@@ -118,7 +119,43 @@ class _EventDetailsState extends State<EventDetails> {
   }
 
   Widget buildLocation() {
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: AppColors.blue, width: 2),
+          ),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(
+                  Icons.location_searching,
+                  size: 32,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                "Cairo, Egypt",
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              Spacer(),
+              Icon(Icons.arrow_forward_ios, color: AppColors.blue),
+            ],
+          ),
+        ),
+        const SizedBox(height: 8),
+        Image.asset(AppAssets.eventMap, fit: BoxFit.cover),
+      ],
+    );
   }
 
   Widget buildDescription() {
