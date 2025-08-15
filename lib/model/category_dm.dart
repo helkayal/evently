@@ -27,7 +27,7 @@ class CategoryDM {
     CategoryDM(
       icon: Icons.meeting_room,
       title: "Meeting",
-      image: AppAssets.eventGaming,
+      image: AppAssets.eventMeeting,
     ),
     CategoryDM(
       icon: Icons.cake,
@@ -54,7 +54,7 @@ class CategoryDM {
     CategoryDM(
       icon: Icons.meeting_room,
       title: "Meeting",
-      image: AppAssets.eventGaming,
+      image: AppAssets.eventMeeting,
     ),
     CategoryDM(
       icon: Icons.cake,
