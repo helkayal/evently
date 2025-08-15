@@ -42,14 +42,19 @@ class _EventDetailsState extends State<EventDetails> {
   }
 
   AppBar buildAppbar(BuildContext context) {
-    return AppBar(
-      title: Text('Event Details'),
+    return buildEventAppbar(
+      context: context,
+      title: 'Event Details',
       actions: [
         IconButton(
           onPressed: () {
             Navigator.push(context, AppRoutes.editEvent(widget.event));
           },
-          icon: Icon(Icons.edit_outlined, size: 24),
+          icon: Icon(
+            Icons.edit_outlined,
+            size: 24,
+            color: Theme.of(context).colorScheme.primary,
+          ),
         ),
         IconButton(
           onPressed: () async {

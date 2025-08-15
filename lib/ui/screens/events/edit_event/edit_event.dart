@@ -39,7 +39,7 @@ class _EditEventState extends State<EditEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildEventAppbar(context: context, title: 'Edit Event'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -76,8 +76,6 @@ class _EditEventState extends State<EditEvent> {
       ),
     );
   }
-
-  buildAppBar() => AppBar(title: Text("Edit Event"));
 
   buildCategoryTabs() => CategoryTabs(
     categories: CategoryDM.createEventsCategories,

@@ -31,7 +31,7 @@ class _HomeTabState extends State<HomeTab> {
   buildHeader() => Container(
     padding: EdgeInsets.all(16),
     decoration: BoxDecoration(
-      color: AppColors.blue,
+      color: Theme.of(context).colorScheme.onPrimary,
       borderRadius: BorderRadius.only(
         bottomRight: Radius.circular(20),
         bottomLeft: Radius.circular(20),

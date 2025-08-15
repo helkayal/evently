@@ -135,3 +135,15 @@ buildEventTime({
 );
 
 buildEventLocation() => Container();
+
+buildEventAppbar({
+  required BuildContext context,
+  required String title,
+  List<Widget>? actions = const [],
+}) => AppBar(
+  title: Text(title, style: Theme.of(context).textTheme.headlineLarge),
+  centerTitle: true,
+  backgroundColor: Theme.of(context).colorScheme.tertiary,
+  iconTheme: IconThemeData(color: Theme.of(context).colorScheme.primary),
+  actions: actions,
+);

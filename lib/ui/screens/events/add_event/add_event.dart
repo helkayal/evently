@@ -26,7 +26,7 @@ class _AddEventState extends State<AddEvent> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildEventAppbar(context: context, title: 'Create Event'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -63,8 +63,6 @@ class _AddEventState extends State<AddEvent> {
       ),
     );
   }
-
-  buildAppBar() => AppBar(title: Text("Create Event"));
 
   buildCategoryTabs() => CategoryTabs(
     categories: CategoryDM.createEventsCategories,
