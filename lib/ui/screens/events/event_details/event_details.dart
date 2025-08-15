@@ -107,7 +107,7 @@ class _EventDetailsState extends State<EventDetails> {
               ),
               const SizedBox(height: 4),
               Text(
-                "${widget.event.date.hour}:${widget.event.date.minute.toString().padLeft(2, '0')}",
+                TimeOfDay.fromDateTime(widget.event.date).format(context),
                 style: Theme.of(context).textTheme.labelSmall,
               ),
             ],
